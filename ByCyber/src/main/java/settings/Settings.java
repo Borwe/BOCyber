@@ -141,7 +141,7 @@ public class Settings {
 		}
 	}
 	
-	private static String getPortNumber() {
+	public static String getPortNumber() {
 		Properties protProps=null;
 		try {
 			protProps = getPropertiesFile();

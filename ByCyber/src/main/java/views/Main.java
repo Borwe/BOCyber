@@ -1,9 +1,12 @@
 package views;
 
+import java.lang.reflect.InvocationTargetException;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.SwingUtilities;
 
 import settings.Settings;
 
@@ -13,6 +16,16 @@ public class Main extends JFrame implements Runnable {
 		JMenuBar menuBar=new JMenuBar();
 		
 		JMenu connection=new JMenu("Connection");
+		
+		JMenuItem listenForDevices=new JMenuItem("Start Listen For Devices");
+		JMenuItem exitApplication=new JMenuItem("Exit");
+		exitApplication.addActionListener(event->{
+			Main.this.setVisible(false);
+			System.exit(0);
+		});
+		
+		connection.add(listenForDevices);
+		connection.add(exitApplication);
 		menuBar.add(connection);
 		
 		
@@ -28,6 +41,19 @@ public class Main extends JFrame implements Runnable {
 		settings.add(portSettings);
 		settings.add(setLooks);
 		menuBar.add(settings);
+		
+		JMenu help=new JMenu("Help");
+		JMenuItem about=new JMenuItem("About");
+		about.addActionListener(event->{
+			SwingUtilities.invokeLater(new About(Main.this));
+		});
+		JMenuItem features=new JMenuItem("Features");
+		features.addActionListener(event->{
+			SwingUtilities.invokeLater(new Features(Main.this));
+		});
+		help.add(features);
+		help.add(about);
+		menuBar.add(help);
 		
 		this.setJMenuBar(menuBar);
 	}

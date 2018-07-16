@@ -1,4 +1,4 @@
 #Property shit
-#Sun Jul 15 17:02:14 EAT 2018
-port=5555
-theme=javax.swing.plaf.nimbus.NimbusLookAndFeel
+#Mon Jul 16 20:44:29 EAT 2018
+port=55
+theme=javax.swing.plaf.metal.MetalLookAndFeel
