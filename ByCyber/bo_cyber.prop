@@ -1,4 +1,5 @@
 #Property shit
-#Mon Jul 16 20:44:29 EAT 2018
-port=55
+#Tue Jul 17 12:43:16 EAT 2018
+port=4444
+delay=300000
 theme=javax.swing.plaf.metal.MetalLookAndFeel

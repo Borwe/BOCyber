@@ -22,6 +22,7 @@ public class Settings {
 
 	private static final String PORT_NAME="port";
 	private static final String LOOKS_NAME="theme";
+	private static final String SEARCH_DELAY="delay";
 	private static final String PROPERTIES_FILE="bo_cyber.prop";
 	private static final String PROP_COMMENTS="Property shit";
 	
@@ -52,6 +53,38 @@ public class Settings {
 			});
 		}else {
 			
+		}
+	}
+	
+	public static void setBackgroundDelayOnStartUp(JFrame parent) {
+		Properties properties=null;
+		try {
+			properties=getPropertiesFile();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(properties==null) {
+			properties=new Properties();
+		}
+		
+		String delay;
+		if((delay=properties.getProperty(SEARCH_DELAY))!=null) {
+			double d=Integer.parseInt(delay)/(1000*60);//turn to minutes
+			JOptionPane.showMessageDialog(parent, "NOTE: Current search time is "+d+" minutes");
+		}else {
+			//set to 5 minutes to search for devices
+			properties.setProperty(SEARCH_DELAY, (1000*60*5)+"");
+			try {
+				saveProptertiesFile(properties);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			JOptionPane.showMessageDialog(parent, "NOTE: Default wait time for search is 5 minutes\n"
+					+ "Value can be changed on Settings");
 		}
 	}
 	

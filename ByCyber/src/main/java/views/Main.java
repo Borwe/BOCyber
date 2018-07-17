@@ -34,11 +34,13 @@ public class Main extends JFrame implements Runnable {
 		portSettings.addActionListener(event->{
 			Settings.promptForPort(Main.this);
 		});
+		JMenuItem setDelay=new JMenuItem("Set Search Delay");
 		JMenuItem setLooks=new JMenuItem("Set Look And Feel...");
 		setLooks.addActionListener(event->{
 			Settings.promptForTheme(Main.this);
 		});
 		settings.add(portSettings);
+		settings.add(setDelay);
 		settings.add(setLooks);
 		menuBar.add(settings);
 		
@@ -57,6 +59,10 @@ public class Main extends JFrame implements Runnable {
 		
 		this.setJMenuBar(menuBar);
 	}
+	
+	private void startUpInfo() {
+		Settings.setBackgroundDelayOnStartUp(Main.this);
+	}
 
 	public void run() {
 		// TODO Auto-generated method stub
@@ -64,6 +70,7 @@ public class Main extends JFrame implements Runnable {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		generateMenus();
+		startUpInfo();
 		
 		this.setSize(800,600);
 		this.setLocationRelativeTo(null);
