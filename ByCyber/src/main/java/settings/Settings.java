@@ -88,6 +88,56 @@ public class Settings {
 		}
 	}
 	
+	public static void setBackgroundDelay(JFrame parent) {
+		String prompt="Enter the time to wait when searching for \n"
+				+ "devices to connect to to with ByCyer in minutes";
+		
+		String current_minutes=getBackgroundDelay();
+		if(current_minutes!=null) {
+			prompt+="\n(Current Delay Time: "+current_minutes+" minutes)";
+		}
+		
+		
+		String delay=JOptionPane.showInputDialog(parent, prompt);
+		
+		
+		
+		try {
+			//turn to miliseconds
+			double d=Double.parseDouble(delay);
+			d=d*1000*60;
+			
+			//get propertyfile
+			Properties property=getPropertiesFile();
+			if(property==null) {
+				property=new Properties();
+			}
+			property.setProperty(SEARCH_DELAY, d+"");
+			saveProptertiesFile(property);
+		}catch (Exception e) {
+			// TODO: handle exception
+			JOptionPane.showMessageDialog(parent, "Please enter time in minutes",
+					"Error", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	public static String getBackgroundDelay() {
+		try {
+			Properties properties=getPropertiesFile();
+			if(properties!=null) {
+				String time=properties.getProperty(SEARCH_DELAY);
+				double minutes=Double.parseDouble(time)/(1000*60);
+				return minutes+"";
+			}else {
+				return null;
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public static void setThemeInProp(LookAndFeelInfo look) {
 		Properties properties=null;
 		try {

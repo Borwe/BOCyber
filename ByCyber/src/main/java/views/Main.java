@@ -8,6 +8,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.SwingUtilities;
 
+import network.CreatedSocket;
 import settings.Settings;
 
 public class Main extends JFrame implements Runnable {
@@ -18,6 +19,9 @@ public class Main extends JFrame implements Runnable {
 		JMenu connection=new JMenu("Connection");
 		
 		JMenuItem listenForDevices=new JMenuItem("Start Listen For Devices");
+		listenForDevices.addActionListener(event->{
+			CreatedSocket.searchDevicesInNetwork();
+		});
 		JMenuItem exitApplication=new JMenuItem("Exit");
 		exitApplication.addActionListener(event->{
 			Main.this.setVisible(false);
@@ -35,6 +39,9 @@ public class Main extends JFrame implements Runnable {
 			Settings.promptForPort(Main.this);
 		});
 		JMenuItem setDelay=new JMenuItem("Set Search Delay");
+		setDelay.addActionListener(event->{
+			Settings.setBackgroundDelay(Main.this);
+		});
 		JMenuItem setLooks=new JMenuItem("Set Look And Feel...");
 		setLooks.addActionListener(event->{
 			Settings.promptForTheme(Main.this);
