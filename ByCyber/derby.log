@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Tue Jul 17 20:11:30 EAT 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0164-a939-ba0e-000000a63d30 
-on database directory C:\Users\msbhitsupport.MSBHK\Desktop\BO\Brian-Code\BOCyber\ByCyber\db with class loader sun.misc.Launcher$AppClassLoader@139a55 
-Loaded from file:/C:/Users/msbhitsupport.MSBHK/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+Wed Jul 18 12:09:10 EAT 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0164-aca6-8176-000002ee2e18 
+on database directory /home/brian/eclipse-workspace/BOCyber/ByCyber/db with class loader sun.misc.Launcher$AppClassLoader@7ea987ac 
+Loaded from file:/home/brian/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_171-b11
-user.dir=C:\Users\msbhitsupport.MSBHK\Desktop\BO\Brian-Code\BOCyber\ByCyber
-os.name=Windows 10
-os.arch=x86
-os.version=10.0
+java.runtime.version=1.8.0_171-8u171-b11-0ubuntu0.18.04.1-b11
+user.dir=/home/brian/eclipse-workspace/BOCyber/ByCyber
+os.name=Linux
+os.arch=amd64
+os.version=4.4.138-0404138-generic
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
