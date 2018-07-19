@@ -1,5 +1,5 @@
 #Property shit
-#Tue Jul 17 20:11:26 EAT 2018
+#Thu Jul 19 12:09:51 EAT 2018
 port=5555
 delay=300000
-theme=javax.swing.plaf.nimbus.NimbusLookAndFeel
+theme=javax.swing.plaf.metal.MetalLookAndFeel

@@ -1,13 +1,22 @@
 package com.borwe.ByClient;
 
-/**
- * Hello world!
- *
- */
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import javax.swing.SwingUtilities;
+
+import views.Main;
+
+
 public class App 
 {
+	
+	public static ExecutorService backgroundTasks=null;
+	
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        backgroundTasks=Executors.newCachedThreadPool();
+        
+        SwingUtilities.invokeLater(new Main());
     }
 }

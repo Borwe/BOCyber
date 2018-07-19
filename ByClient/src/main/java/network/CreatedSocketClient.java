@@ -2,6 +2,7 @@ package network;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.InterfaceAddress;
 import java.net.NetworkInterface;
@@ -10,22 +11,20 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
-import settings.Settings;
+public class CreatedSocketClient {
 
-public class CreatedSocket {
-
-	public static void searchDevicesInNetwork() {
-		System.out.println("Listening");
+	public static void broadcastToByCyber() {
 		try {
-			DatagramSocket ds=new DatagramSocket(Integer.parseInt(Settings.getPortNumber()));
-			byte buf[]=new byte[1000*60];
-			DatagramPacket dp=new DatagramPacket(buf, buf.length);
+			DatagramSocket ds=new DatagramSocket();
+			String test="Fucking testing bitch";
 			
-			ds.setSoTimeout((int)(Double.parseDouble(Settings.getBackgroundDelay())*1000*60));
-			ds.receive(dp);
+			DatagramPacket dp=new DatagramPacket(test.getBytes(), test.getBytes().length,
+					Inet4Address.getByName(getBroadcastAddress().get(0)), 5555);
 			
-			System.out.println("DATA: "+new String(dp.getData()));
+			ds.send(dp);
 			ds.close();
+			
+			System.out.println("LINK: "+getBroadcastAddress().get(0));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
